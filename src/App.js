@@ -22,15 +22,18 @@ function App() {
  // const [url, setUrl] = useState(""); 
   //console.log("top")
 
-  //axios.get("https://api.nasa.gov/planetary/apod?api_key=Uja8W9uLSf30BLKoimN4IB6CyLSJvDgA2Mctwflm")
-  axios.get("/")
-  .then(res => {
-    res = exampleResponse;
-    console.log(res.data); 
-    setData(res.data); 
+  //console.log("data: ", Object.hasOwnProperty(data, 'url'), data);
+  if (!data.hasOwnProperty('url')) {   
+    axios.get("https://api.nasa.gov/planetary/apod?api_key=Uja8W9uLSf30BLKoimN4IB6CyLSJvDgA2Mctwflm")
+    //axios.get("/")
+    .then(res => {
+      //res = exampleResponse;
+      console.log("axios ran"); 
+      setData(res.data); 
 
-    //setExplanation(res.data.explanation); 
-  }); 
+      //setExplanation(res.data.explanation); 
+    }); 
+  }
   //console.log("buttom"); 
 
   return (
@@ -40,8 +43,8 @@ function App() {
         app! Have fun 🚀!
       </p>
       <Picture title = {data.title}
-                url = "this is not a url"
-                explanation = "some explanation" />
+                url = {data.url}
+                explanation = {data.explanation} />
     </div>
   );
 }
