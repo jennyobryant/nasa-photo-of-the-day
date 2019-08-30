@@ -24,10 +24,14 @@ function App() {
   //console.log("top")
 
   //console.log("data: ", Object.hasOwnProperty(data, 'url'), data);
-  if (!data.hasOwnProperty('url')) {   
-   // axios.get("https://api.nasa.gov/planetary/apod?api_key=Uja8W9uLSf30BLKoimN4IB6CyLSJvDgA2Mctwflm")
+  if (!data.hasOwnProperty('url')) {   //stop looping problem 
+  // axios.get("https://api.nasa.gov/planetary/apod?api_key=Uja8W9uLSf30BLKoimN4IB6CyLSJvDgA2Mctwflm")
     //axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
-    axios.get("/") //testing 
+   axios.get("/") //testing 
+  // useEffect(()=> {
+     //console.log("first render"); 
+     //axios.get(
+       //"https://api.nasa.gov/planetary/apod?api_key=Uja8W9uLSf30BLKoimN4IB6CyLSJvDgA2Mctwflm")
     .then(res => {
       res = exampleResponse;//testing
       console.log("axios ran"); 
@@ -36,6 +40,8 @@ function App() {
       //setExplanation(res.data.explanation); 
     }); 
   }
+  //, []); 
+
   //console.log("buttom"); 
 
   return (
@@ -44,9 +50,11 @@ function App() {
         Read through the instructions in the README.md file to build your NASA
         app! Have fun 🚀!
       </p>
+      <div className = "picture">
       <Picture title = {data.title}
                 url = {data.url} />
       <Explanation explanation = {data.explanation} />
+    </div>
     </div>
   );
 }
