@@ -1,9 +1,10 @@
 import React from 'react'; 
+import "./Explanation.scss"; 
 
 function Explanation (props){
     console.log(props); 
     return (
-        <div>
+        <div className ="words">
             <p>
                 {props.explanation}
             </p>

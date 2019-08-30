@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios"; 
 import Picture from "./components/Picture.js"; 
 import Explanation from "./components/Explanation.js"; 
-import "./App.css";
+import "./App.scss";
 
 let exampleResponse = {
   data: {
