@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios"; 
 import Picture from "./components/Picture.js"; 
+import Explanation from "./components/Explanation.js"; 
 import "./App.css";
 
 let exampleResponse = {
@@ -24,10 +25,11 @@ function App() {
 
   //console.log("data: ", Object.hasOwnProperty(data, 'url'), data);
   if (!data.hasOwnProperty('url')) {   
-    axios.get("https://api.nasa.gov/planetary/apod?api_key=Uja8W9uLSf30BLKoimN4IB6CyLSJvDgA2Mctwflm")
-    //axios.get("/")
+   // axios.get("https://api.nasa.gov/planetary/apod?api_key=Uja8W9uLSf30BLKoimN4IB6CyLSJvDgA2Mctwflm")
+    //axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+    axios.get("/") //testing 
     .then(res => {
-      //res = exampleResponse;
+      res = exampleResponse;//testing
       console.log("axios ran"); 
       setData(res.data); 
 
@@ -43,8 +45,8 @@ function App() {
         app! Have fun 🚀!
       </p>
       <Picture title = {data.title}
-                url = {data.url}
-                explanation = {data.explanation} />
+                url = {data.url} />
+      <Explanation explanation = {data.explanation} />
     </div>
   );
 }
